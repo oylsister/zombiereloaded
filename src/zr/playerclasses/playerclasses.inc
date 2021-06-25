@@ -508,15 +508,15 @@ new bool:ClassPlayerSpawned[MAXPLAYERS + 1];
  */
 new ClassSpeedMethods:ClassSpeedMethod = ClassSpeed_Prop;
 
-#include "zr/playerclasses/filtertools"
-#include "zr/playerclasses/attributes"
-#include "zr/playerclasses/apply"
-#include "zr/playerclasses/clientoverlays"
-#include "zr/playerclasses/clientalpha"
-#include "zr/playerclasses/healthregen"
-#include "zr/playerclasses/classevents"
-#include "zr/playerclasses/classmenus"
-#include "zr/playerclasses/classcommands"
+#include "filtertools"
+#include "attributes"
+#include "apply"
+#include "clientoverlays"
+#include "clientalpha"
+#include "healthregen"
+#include "classevents"
+#include "classmenus"
+#include "classcommands"
 
 /**
  * Loads class attributes from the class file into ClassData array. If any

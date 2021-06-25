@@ -102,10 +102,10 @@ enum WeaponsSlot
  */
 new Handle:arrayWeapons = INVALID_HANDLE;
 
-#include "zr/weapons/restrict"
-#include "zr/weapons/weaponammo"
-#include "zr/weapons/zmarket"
-#include "zr/weapons/menu_weapons"
+#include "restrict"
+#include "weaponammo"
+#include "zmarket"
+#include "menu_weapons"
 
 /**
  * Weapons module init function.

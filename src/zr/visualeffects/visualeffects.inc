@@ -25,8 +25,8 @@
  * ============================================================================
  */
 
-#include "zr/visualeffects/visualambience"
-#include "zr/visualeffects/ragdoll"
+#include "visualambience"
+#include "ragdoll"
 
 /**
  * The map is ending.

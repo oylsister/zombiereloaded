@@ -35,9 +35,9 @@
  */
 #define SOUND_AMBIENT_CHANNEL 8
 
-#include "zr/soundeffects/voice"
-#include "zr/soundeffects/ambientsounds"
-#include "zr/soundeffects/zombiesounds"
+#include "voice"
+#include "ambientsounds"
+#include "zombiesounds"
 
 /**
  * Load sound effects data.

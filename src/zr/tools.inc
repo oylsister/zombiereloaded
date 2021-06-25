@@ -40,7 +40,7 @@ new g_iToolsLastHitGroup;
  */
 
 // Tools Functions (core)
-#include "zr/tools_functions"
+#include "tools_functions"
 
 /**
  * Tools module init function.
