@@ -31,3 +31,35 @@ materials/overlays/zr/humans_win.vmt
 // zvision
 materials/overlays/zr/zvision.vtf
 materials/overlays/zr/zvision.vmt
+
+// --- Zombie Sounds ---
+
+// Default pack
+
+sound/zr/default/zm_infect/1.mp3
+
+sound/zr/default/zm_die/1.mp3
+sound/zr/default/zm_die/2.mp3
+sound/zr/default/zm_die/3.mp3
+
+sound/zr/default/zm_pain/1.mp3
+sound/zr/default/zm_pain/2.mp3
+sound/zr/default/zm_pain/3.mp3
+sound/zr/default/zm_pain/4.mp3
+sound/zr/default/zm_pain/5.mp3
+sound/zr/default/zm_pain/6.mp3
+
+sound/zr/default/zm_idle/1.mp3
+sound/zr/default/zm_idle/2.mp3
+sound/zr/default/zm_idle/3.mp3
+sound/zr/default/zm_idle/4.mp3
+sound/zr/default/zm_idle/5.mp3
+sound/zr/default/zm_idle/6.mp3
+sound/zr/default/zm_idle/7.mp3
+sound/zr/default/zm_idle/8.mp3
+sound/zr/default/zm_idle/9.mp3
+sound/zr/default/zm_idle/10.mp3
+sound/zr/default/zm_idle/11.mp3
+sound/zr/default/zm_idle/12.mp3
+sound/zr/default/zm_idle/13.mp3
+sound/zr/default/zm_idle/14.mp3

@@ -30,8 +30,7 @@
 /**
  * @section Defines for min/max moaning sound file index.
  */
-#define SOUND_MOAN_PATH "npc/zombie/zombie_voice_idle%d.wav" // %d is sound file index
-#define SOUND_MOAN_CSGO "music/zr/zombie_voice_idle%d.mp3"
+#define SOUND_MOAN_PATH "zr/%s/zm_idle/%d.mp3" // %d is sound file index
 #define SOUND_MOAN_MIN 1
 #define SOUND_MOAN_MAX 14
 /**
@@ -41,8 +40,7 @@
 /**
  * @section Defines for min/max groan sound file index.
  */
-#define SOUND_GROAN_PATH "npc/zombie/zombie_pain%d.wav" // %d is sound file index
-#define SOUND_GROAN_CSGO "music/zr/zombie_pain%d.mp3"
+#define SOUND_GROAN_PATH "zr/%s/zm_pain/%d.mp3" // %d is sound file index
 #define SOUND_GROAN_MIN 1
 #define SOUND_GROAN_MAX 6
 /**
@@ -52,10 +50,19 @@
 /**
  * @section Defines for min/max death sound file index.
  */
-#define SOUND_DEATH_PATH "npc/zombie/zombie_die%d.wav" // %d is sound file index
-#define SOUND_DEATH_CSGO "music/zr/zombie_die%d.mp3"
+#define SOUND_DEATH_PATH "zr/%s/zm_die/%d.mp3" // %d is sound file index
 #define SOUND_DEATH_MIN 1
 #define SOUND_DEATH_MAX 3
+/**
+ * @endsection
+ */
+
+/**
+ * @section Defines for min/max infect sound file index.
+ */
+#define SOUND_INFECT_PATH "zr/%s/zm_infect/%d.mp3" // %d is sound file index
+#define SOUND_INFECT_MIN 1
+#define SOUND_INFECT_MAX 1
 /**
  * @endsection
  */
@@ -68,6 +75,7 @@ enum ZombieSounds
     Moan, /** Zombie's moan periodically */
     Groan, /** When zombie is hurt */
     Death, /** When a zombie is killed */
+    Infect, /** When a zombie is infected */
 }
 
 /**
@@ -243,7 +251,7 @@ ZombieSoundsOnCommandsCreate()
  * @param soundtype The type of sound to get. (See enum ZombieSounds)
  * @return          True if sound was successfully picked, false otherwise.
  */
-bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
+bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype, String:pack[] = "default")
 {
     new soundmin;
     new soundmax;
@@ -258,11 +266,7 @@ bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
             soundmin = SOUND_MOAN_MIN;
             soundmax = SOUND_MOAN_MAX;
 
-            // Copy path
-            if (g_Game == Game_CSGO)
-                strcopy(soundpath, sizeof(soundpath), SOUND_MOAN_CSGO);
-            else
-                strcopy(soundpath, sizeof(soundpath), SOUND_MOAN_PATH);
+            strcopy(soundpath, sizeof(soundpath), SOUND_MOAN_PATH);
         }
         // Find groan sound. (zombie shot)
         case Groan:
@@ -271,11 +275,7 @@ bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
             soundmin = SOUND_GROAN_MIN;
             soundmax = SOUND_GROAN_MAX;
 
-            // Copy path
-            if (g_Game == Game_CSGO)
-                strcopy(soundpath, sizeof(soundpath), SOUND_GROAN_CSGO);
-            else
-                strcopy(soundpath, sizeof(soundpath), SOUND_GROAN_PATH);
+            strcopy(soundpath, sizeof(soundpath), SOUND_GROAN_PATH);
         }
         // Find death sound.
         case Death:
@@ -284,11 +284,16 @@ bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
             soundmin = SOUND_DEATH_MIN;
             soundmax = SOUND_DEATH_MAX;
 
-            // Copy path
-            if (g_Game == Game_CSGO)
-                strcopy(soundpath, sizeof(soundpath), SOUND_DEATH_CSGO);
-            else
-                strcopy(soundpath, sizeof(soundpath), SOUND_DEATH_PATH);
+            strcopy(soundpath, sizeof(soundpath), SOUND_DEATH_PATH);
+        }
+        // Find infect sound.
+        case Infect:
+        {
+            // Copy min and max
+            soundmin = SOUND_INFECT_MIN;
+            soundmax = SOUND_INFECT_MAX;
+
+            strcopy(soundpath, sizeof(soundpath), SOUND_INFECT_PATH);
         }
         // Invalid case given.
         default:
@@ -302,7 +307,7 @@ bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
     new randsound = GetRandomInt(soundmin, soundmax);
 
     // Format random index into sound path.
-    Format(sound, SOUND_MAX_PATH, soundpath, randsound);
+    Format(sound, SOUND_MAX_PATH, soundpath, pack, randsound);
 
     // Found sound.
     return true;
@@ -356,14 +361,10 @@ ZombieSoundsMoan(client)
 ZombieSoundsScream(client)
 {
     decl String:sound[PLATFORM_MAX_PATH];
-    GetConVarString(g_hCvarsList.CVAR_INFECT_SOUND, sound, sizeof(sound));
+    ZombieSoundsGetRandomSound(sound, Infect);
 
-    // If cvar contains path, then continue.
-    if (sound[0])
-    {
-        // Emit infect sound from infected client.
-        SEffectsEmitSoundFromClient(client, sound, SNDLEVEL_SCREAMING);
-    }
+    // Emit infect sound from infected client.
+    SEffectsEmitSoundFromClient(client, sound, SNDLEVEL_SCREAMING);
 }
 
 /**

@@ -87,6 +87,11 @@ new Handle:g_hInfectCountdownData = INVALID_HANDLE;
 new g_iInfectCountdownSounds = 0;
 
 /**
+ * Number of available/precached infect countdown sounds.
+ */
+new g_iInfectPackSounds[64][4] = { { 0, ... }, ... };
+
+/**
  * Array for storing infect countdown sound client settings.
  */
 new g_aInfectCountdownSoundClients[MAXPLAYERS + 1];
@@ -239,18 +244,23 @@ InfectLoad()
     g_hInfectMotherCycle = SteamidCacheCreate();
     g_hInfectMotherCycleRTD = SteamidCacheCreate();
 
-    // Get infection sound.
-    decl String:sound[PLATFORM_MAX_PATH];
-    GetConVarString(g_hCvarsList.CVAR_INFECT_SOUND, sound, sizeof(sound));
-
-    // If infect sound cvar is not empty.
-    if (sound[0])
+    // Precache sound packs
+    int count = 1;
+    while (true)
     {
-        // Prepend sound/ to the path.
-        Format(sound, sizeof(sound), "sound/%s", sound);
+        Format(sound, sizeof(sound), SOUND_MOAN_PATH, pack, count);
+        if (!FileExists(sound))
+            break;
 
-        // Add sound file to downloads table.
+        ReplaceString(sound, sizeof(sound), "zr/", "sound/zr/");
         AddFileToDownloadsTable(sound);
+
+        ReplaceString(sound, sizeof(sound), "sound/", "");
+        PrecacheSound(sound);
+
+        count++;
+        g_iInfectPackSounds[]
+        g_iInfectCountdownSounds = count;
     }
 
     // Precache countdown sounds
