@@ -102,10 +102,10 @@ enum WeaponsSlot
  */
 new Handle:arrayWeapons = INVALID_HANDLE;
 
-#include "restrict"
-#include "weaponammo"
-#include "zmarket"
-#include "menu_weapons"
+#include "zr/weapons/restrict"
+#include "zr/weapons/weaponammo"
+#include "zr/weapons/zmarket"
+#include "zr/weapons/menu_weapons"
 
 /**
  * Weapons module init function.
@@ -713,7 +713,7 @@ stock WeaponsGetZMarketCommand(index, String:command[], maxlen)
 stock bool:WeaponsClientHasWeapon(client, const String:weapon[])
 {
     // Get all of client's current weapons.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     decl String:classname[64];
@@ -745,7 +745,7 @@ stock bool:WeaponsClientHasWeapon(client, const String:weapon[])
  * @param weapons   The weapon index array.
  *                  -1 if no weapon in slot.
  */
-stock void WeaponsGetClientWeapons(int client, int weapons[Slot_MAXSIZE])
+stock void WeaponsGetClientWeapons(int client, int weapons[12])
 {
     // x = Weapon slot.
     for (new x = 0; x < WEAPONS_SLOTS_MAX; x++)
@@ -776,7 +776,7 @@ stock WeaponsGetActiveWeaponIndex(client)
 stock WeaponsSlot:WeaponsGetActiveWeaponSlot(client)
 {
     // Get all client's weapon indexes.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     // Get client's active weapon.
@@ -876,7 +876,7 @@ stock WeaponsRefreshClientWeapon(client, WeaponsSlot:slot)
 stock WeaponsRemoveAllClientWeapons(client, bool:weaponsdrop)
 {
     // Get a list of all client's weapon indexes.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     // Loop through array slots and force drop.
@@ -939,7 +939,7 @@ stock WeaponsRemoveAllClientWeapons(client, bool:weaponsdrop)
 stock WeaponsRefreshAllClientWeapons(client)
 {
     // Get a list of all client's weapon indexes.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     // Loop through array slots and force drop.

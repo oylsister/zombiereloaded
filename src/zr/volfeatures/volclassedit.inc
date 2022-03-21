@@ -30,33 +30,7 @@
 /**
  * Empty attribute structure with all settings set to be ignored.
  */
-ClassEditableAttributes VolEmptyAttributes = {
-    -1,                             /** ModelSkinIndex */
-    -1,                             /** AlphaInitial */
-    -1,                             /** AlphaDamaged */
-    -1,                             /** AlphaDamage */
-
-    "nochange",                     /** OverlayPath */
-    -1,                             /** Nvgs */
-    -1,                             /** Fov */
-
-    -1,                             /** HasNapalm */
-    -1.0,                           /** NapalmTime */
-    Immunity_Invalid,               /** ImmunityMode */
-    -1,                             /** ImmunityAmount */
-    -1,                             /** ImmunityCooldown */
-    -1,                             /** NoFallDamage */
-
-    -1.0,                           /** RegenInterval */
-    -1,                             /** RegenAmount */
-    -1,                             /** InfectGain */
-    -1,                             /** KillBonus */
-
-    -1.0,                           /** Speed */
-    ZR_CLASS_KNOCKBACK_IGNORE,      /** KnockBack */
-    -1.0,                           /** JumpHeight */
-    -1.0,                           /** JumpDistance */
-};
+ClassEditableAttributes VolEmptyAttributes = { -1, -1, -1, -1, "nochange", -1, -1, -1, -1.0, Immunity_Invalid, -1, -1, -1, -1.0, -1, -1, -1, -1.0, ZR_CLASS_KNOCKBACK_IGNORE, -1.0, -1.0};
 
 /**
  * List of class edit modes.

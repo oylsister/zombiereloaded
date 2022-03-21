@@ -86,7 +86,7 @@ stock TranslationPluginFormatString(String:text[], maxlen, bool:color = true)
         ReplaceString(text, maxlen, "@green", "{green}");
 
         CFormatColor(text, maxlen, 0);
-        MC_AddWhiteSpace(text, maxlen);
+        //MC_AddWhiteSpace(text, maxlen);
 
         return;
     }

@@ -440,7 +440,7 @@ ClassAttributes ClassPlayerCache[MAXPLAYERS + 1];
  * possible. Only attributes that support multipliers will be used, others are
  * ignored.
  */
-new Float:ClassMultiplierCache[ZR_CLASS_TEAMCOUNT][ClassM_MAXSIZE];
+new Float:ClassMultiplierCache[ZR_CLASS_TEAMCOUNT][10];
 
 /**
  * Number of classes loaded.
@@ -508,15 +508,15 @@ new bool:ClassPlayerSpawned[MAXPLAYERS + 1];
  */
 new ClassSpeedMethods:ClassSpeedMethod = ClassSpeed_Prop;
 
-#include "filtertools"
-#include "attributes"
-#include "apply"
-#include "clientoverlays"
-#include "clientalpha"
-#include "healthregen"
-#include "classevents"
-#include "classmenus"
-#include "classcommands"
+#include "zr/playerclasses/filtertools"
+#include "zr/playerclasses/attributes"
+#include "zr/playerclasses/apply"
+#include "zr/playerclasses/clientoverlays"
+#include "zr/playerclasses/clientalpha"
+#include "zr/playerclasses/healthregen"
+#include "zr/playerclasses/classevents"
+#include "zr/playerclasses/classmenus"
+#include "zr/playerclasses/classcommands"
 
 /**
  * Loads class attributes from the class file into ClassData array. If any
@@ -956,15 +956,15 @@ ClassResetMultiplierCache()
     // Loop through all teams.
     for (new teamid = 0; teamid < ZR_CLASS_TEAMCOUNT; teamid++)
     {
-        ClassMultiplierCache[teamid][ClassM_NapalmTime] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_Health] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_HealthRegenInterval] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_HealthRegenAmount] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_HealthInfectGain] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_Speed] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_Knockback] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_JumpHeight] = 1.0;
-        ClassMultiplierCache[teamid][ClassM_JumpDistance] = 1.0;
+        ClassMultiplierCache[teamid][ClassM_NapalmTime] = 1;
+        ClassMultiplierCache[teamid][ClassM_Health] = 1;
+        ClassMultiplierCache[teamid][ClassM_HealthRegenInterval] = 1;
+        ClassMultiplierCache[teamid][ClassM_HealthRegenAmount] = 1;
+        ClassMultiplierCache[teamid][ClassM_HealthInfectGain] = 1;
+        ClassMultiplierCache[teamid][ClassM_Speed] = 1;
+        ClassMultiplierCache[teamid][ClassM_Knockback] = 1;
+        ClassMultiplierCache[teamid][ClassM_JumpHeight] = 1;
+        ClassMultiplierCache[teamid][ClassM_JumpDistance] = 1;
     }
 }
 

@@ -33,17 +33,18 @@
 #include <clientprefs>
 #include <cstrike>
 #include <multicolors>
+
 #define INCLUDED_BY_ZOMBIERELOADED
 #include <zombiereloaded>
 #undef INCLUDED_BY_ZOMBIERELOADED
 
 #include <sdkhooks>
 
-#define VERSION "3.2"
+#define VERSION "3.2.1"
 
 // Comment this line to exclude version info command. Enable this if you have
 // the repository and HG installed (Mercurial or TortoiseHG).
-#define ADD_VERSION_INFO
+// #define ADD_VERSION_INFO
 
 // Header includes.
 #include "zr/log.h"

@@ -27,7 +27,7 @@
 
 #pragma newdecls required
 
-#include "cvars"
+#include "zr/ztele/cvars"
 
 #define MAX_PLAYER_SPAWNS 128
 

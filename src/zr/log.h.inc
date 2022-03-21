@@ -87,7 +87,6 @@ enum LogModules
     LogModule_Weaponrestrict,
     LogModule_ZSpawn,
     LogModule_ZTele,
-    LogModule_MAXSIZE
 }
 
 /**
@@ -98,4 +97,4 @@ new Handle:hLogModuleFilter;
 /**
  * Cache of current module filter settings. For fast and easy access.
  */
-new LogModuleFilterCache[LogModule_MAXSIZE];
+new LogModuleFilterCache[20];

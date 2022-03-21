@@ -1059,7 +1059,7 @@ stock bool:ZMarketEquip(client, const String:weapon[], bool:rebuy = false)
     }
 
     // Get a list of the client's current weapons.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     // Check if client is buying the weapon or ammo for it.
@@ -1188,7 +1188,7 @@ bool:ZMarketGetCurrentLoadout(client)
     }
 
     // Get all of client's current weapons.
-    new weapons[Slot_MAXSIZE];
+    new weapons[12];
     WeaponsGetClientWeapons(client, weapons);
 
     decl String:weaponname[WEAPONS_MAX_LENGTH];

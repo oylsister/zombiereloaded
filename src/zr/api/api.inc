@@ -41,11 +41,11 @@
  * http://wiki.alliedmods.net/Function_Calling_API_(SourceMod_Scripting)
  */
 
-#include "infect.api"
-#include "respawn.api"
-#include "class.api"
-#include "napalm.api"
-#include "knockback.api"
+#include "zr/api/infect.api"
+#include "zr/api/respawn.api"
+#include "zr/api/class.api"
+#include "zr/api/napalm.api"
+#include "zr/api/knockback.api"
 
 /**
  * Initializes all main natives and forwards.

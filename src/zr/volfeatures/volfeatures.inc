@@ -152,14 +152,14 @@ new Handle:hVolTriggerTimer = INVALID_HANDLE;
  */
 new Float:VolTriggerInterval;
 
-#include "voltools"
-#include "volevents"
-#include "volgenericattributes"
-#include "volcommands"
+#include "zr/volfeatures/voltools"
+#include "zr/volfeatures/volevents"
+#include "zr/volfeatures/volgenericattributes"
+#include "zr/volfeatures/volcommands"
 
 // Sub features.
-#include "volanticamp"
-#include "volclassedit"
+#include "zr/volfeatures/volanticamp"
+#include "zr/volfeatures/volclassedit"
 
 
 /**

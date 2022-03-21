@@ -38,7 +38,6 @@ enum OverlaysChannel
     OVERLAYS_CHANNEL_NONE = -1,      /** Client has no overlay */
     OVERLAYS_CHANNEL_ROUNDEND = 0,  /** Round win overlay */
     OVERLAYS_CHANNEL_CLASSES = 1,   /** Class overlay */
-    OVERLAYS_CHANNEL_MAXSIZE
 }
 
 /**
@@ -54,12 +53,12 @@ new g_iOverlaysDXL[MAXPLAYERS + 1];
 /**
  * Array to track overlay channel state on each client.
  */
-new bool:g_bOverlayChannel[MAXPLAYERS + 1][OVERLAYS_CHANNEL_MAXSIZE];
+new bool:g_bOverlayChannel[MAXPLAYERS + 1][OVERLAYS_CHANNEL_MAX];
 
 /**
  * Array to store overlay path for each channel.
  */
-new String:g_strOverlayPath[MAXPLAYERS + 1][OVERLAYS_CHANNEL_MAXSIZE][PLATFORM_MAX_PATH];
+new String:g_strOverlayPath[MAXPLAYERS + 1][OVERLAYS_CHANNEL_MAX][PLATFORM_MAX_PATH];
 
 /**
  * Create variable to store global timer handle.
