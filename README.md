@@ -1,5 +1,7 @@
 # ZombieReloaded
 
+Fork from: https://gitlab.com/counterstrikesource/zombiereloaded/
+
 Infection/survival style gameplay for sourcemod
 
 ## Commands
